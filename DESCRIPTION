@@ -1,11 +1,17 @@
 Package: LULCtoLST
-Title: What the Package Does (One Line, Title Case)
+Title: LULC Classification, LST Calculation and NDVI-LST Relationship Analysis Using Landsat 8 Imagery
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("Temesghen", "Sereke", , "temesghensereke@gmail.com", role = c("aut", "cre"))
+Description: This package is designed to classify land use and land cover (LULC) types using Landsat 8 imagery from two selected years. 
+             The classification will categorize the land cover into distinct classes (such as Built_UP_Areas, Water_Bodies, Natural_Vegetation etc.) 
+             and analyze the changes in land cover over time. Additionally, the Land Surface Temperature (LST) for the same two years will be 
+             derived using Landsat 8's thermal band (Band 10). The project further includes an analysis of the relationship between 
+             Normalized Difference Vegetation Index (NDVI) and LST for the selected years. 
+             This will be accomplished by calculating the correlation and performing regression analysis to understand 
+             how vegetation cover (as indicated by NDVI) is related to surface temperature variations across the two years. 
+              
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
