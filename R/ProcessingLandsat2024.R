@@ -1,4 +1,23 @@
-process_landsat_data <- function(landsat_dir, shapefile_path, output_path, bands = c(1, 2, 3, 4, 5, 7)) {
+#' Processing Landsat 8 with clipping and masking for 2024
+#'
+#' @param landsat_dir A character string representing the directory path where the Landsat data files are stored.
+#' @param shapefile_path A character string representing the file path to the shapefile containing the boundary (e.g., administrative area) used for clipping and masking the Landsat image.
+#' @param output_path A character string specifying the path where the output masked Landsat image will be saved.
+#' @param bands A numeric vector specifying the Landsat bands to be processed. Defaults to bands 1, 2, 3, 4, 5, and 7, which correspond to the blue, green, red, NIR, SWIR1, and SWIR2 bands.
+#'
+#' @returns A `SpatRaster` object (from the `terra` package) representing the masked Landsat image after clipping to the provided shapefile's boundary.
+#' @export
+#'
+#' @examples
+#' # Example usage:
+#' ProcessingLandsat2024(
+#'   landsat_dir = "E:/EAGLE/R_programming/LULC_LST/Data_2024/LC08_L2SP_169049_20240309_20240316_02_T1/",
+#'   shapefile_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/Greater_Asmara_Shapefile/Asmara.shp",
+#'   output_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_2024.tif",
+#'   bands = c(1, 2, 3, 4, 5, 7)
+#' )
+
+ProcessingLandsat2024 <- function(landsat_dir, shapefile_path, output_path, bands = c(1, 2, 3, 4, 5, 7)) {
 
   # Set the working directory
   setwd(landsat_dir)
@@ -18,16 +37,16 @@ process_landsat_data <- function(landsat_dir, shapefile_path, output_path, bands
   }
 
   # Visualize the stacked bands (show the first 3 bands in RGB)
-  plot(Landsat_stack[[c(4, 3, 2)]], main = "True Color Composite (Bands 4, 3, 2)")
+  terra::plot(Landsat_stack[[c(4, 3, 2)]], main = "True Color Composite (Bands 4, 3, 2)")
 
   # Create a False Color Composite (Bands 5, 4, 3: NIR, Red, Green)
-  plotRGB(Landsat_stack, r = 5, g = 4, b = 3, stretch = "lin", main = "False Color Composite (Bands 5, 4, 3)")
+  terra::plotRGB(Landsat_stack, r = 5, g = 4, b = 3, stretch = "lin", main = "False Color Composite (Bands 5, 4, 3)")
 
   # Read the shapefile for the boundary using sf::st_read, assuming 'sf' is pre-loaded
   Asmara_shape <- sf::st_read(shapefile_path)
 
   # Ensure CRS of both shapefile and Landsat stack are the same
-  if (crs(Asmara_shape) != crs(Landsat_stack)) {
+  if (terra::crs(Asmara_shape) != terra::crs(Landsat_stack)) {
     # Reproject the shapefile to the CRS of the Landsat stack
     Asmara_shape <- sf::st_transform(Asmara_shape, crs(Landsat_stack))
     message("Reprojected shapefile CRS to match Landsat stack.")
@@ -35,14 +54,14 @@ process_landsat_data <- function(landsat_dir, shapefile_path, output_path, bands
 
   # Crop the Landsat stack using the Asmara boundary
   Cropped_Asmara <- terra::crop(Landsat_stack, Asmara_shape)
-  plot(Cropped_Asmara, main = "Cropped Landsat Image")
+  terra::plot(Cropped_Asmara, main = "Cropped Landsat Image")
 
   # Mask the cropped Landsat image using the Asmara boundary
   masked_Asmara <- terra::mask(Cropped_Asmara, Asmara_shape)
-  plot(masked_Asmara, main = "Masked Landsat Image")
+ terra:: plot(masked_Asmara, main = "Masked Landsat Image")
 
   # Save the masked image to the specified output path
-  writeRaster(masked_Asmara, output_path, overwrite = TRUE)
+  terra::writeRaster(masked_Asmara, output_path, overwrite = TRUE)
 
   # Return the masked image object for further processing if needed
   return(masked_Asmara)
