@@ -24,7 +24,9 @@ ProcessingLandsat2024(
 A SpatRaster object (from the \code{terra} package) representing the masked Landsat image after clipping to the provided shapefile's boundary.
 }
 \description{
-Processing Landsat 8 with clipping and masking for 2024
+This function processes Landsat 8 surface reflectance data by clipping and masking
+it according to a provided shapefile boundary. The function accepts a directory
+of Landsat data, a shapefile for clipping, and outputs a masked Landsat image.
 }
 \examples{
 # Example usage:
