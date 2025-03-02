@@ -5,7 +5,7 @@
 #' @param output_path A character string specifying the path where the output masked Landsat image will be saved.
 #' @param bands A numeric vector specifying the Landsat bands to be processed. Defaults to bands 1, 2, 3, 4, 5, and 7, which correspond to the blue, green, red, NIR, SWIR1, and SWIR2 bands.
 #'
-#' @returns A `SpatRaster` object (from the `terra` package) representing the masked Landsat image after clipping to the provided shapefile's boundary.
+#' @returns A SpatRaster object (from the `terra` package) representing the masked Landsat image after clipping to the provided shapefile's boundary.
 #' @export
 #'
 #' @examples
