@@ -26,18 +26,18 @@ ProcessingLandsat2024 <- function(landsat_dir, shapefile_path, output_path, band
   setwd(landsat_dir)
 
   # List the Landsat band files based on the provided bands
-  band_files <- paste0("LC08_L2SP_169049_20240309_20240316_02_T1/LC08_L2SP_169049_20240309_20240316_02_T1_SR_B", bands, ".tif")
+  band_files <- paste0("LC08_L2SP_169049_20240309_20240316_02_T1_SR_B", bands, ".TIF")
 
   # Check if the band files exist
   if (any(!file.exists(band_files))) {
     stop("One or more band files are missing. Please check the file paths.")
   }
 
-  # Read the Landsat bands using terra::rast, assuming 'terra' is pre-loaded
+  # Read the Landsat bands using terra::rast
   landsat_bands <- lapply(band_files, function(x) terra::rast(x))
 
-  # Stack the Landsat bands using terra::c()
-  Landsat_stack <- terra::c(landsat_bands)  # Use terra::c() for stacking
+  # Stack the Landsat bands using terra::rast (No need for terra::c())
+  Landsat_stack <- terra::rast(landsat_bands)  # Correct method to stack the rasters
 
   # Check for correct stacking
   if (length(Landsat_stack) != length(bands)) {
@@ -50,7 +50,7 @@ ProcessingLandsat2024 <- function(landsat_dir, shapefile_path, output_path, band
   # Create a False Color Composite (Bands 5, 4, 3: NIR, Red, Green)
   terra::plotRGB(Landsat_stack, r = 5, g = 4, b = 3, stretch = "lin", main = "False Color Composite (Bands 5, 4, 3)")
 
-  # Read the shapefile for the boundary using sf::st_read, assuming 'sf' is pre-loaded
+  # Read the shapefile for the boundary using sf::st_read
   Asmara_shape <- sf::st_read(shapefile_path)
 
   # Ensure CRS of both shapefile and Landsat stack are the same
