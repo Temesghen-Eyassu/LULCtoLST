@@ -1,25 +1,3 @@
-#' Processing Landsat 8 with clipping and masking for 2024
-#'
-#' This function processes Landsat 8 surface reflectance data by clipping and masking
-#' it according to a provided shapefile boundary. The function accepts a directory
-#' of Landsat data, a shapefile for clipping, and outputs a masked Landsat image.
-#'
-#' @param landsat_dir A character string representing the directory path where the Landsat data files are stored.
-#' @param shapefile_path A character string representing the file path to the shapefile containing the boundary (e.g., administrative area) used for clipping and masking the Landsat image.
-#' @param output_path A character string specifying the path where the output masked Landsat image will be saved.
-#' @param bands A numeric vector specifying the Landsat bands to be processed. Defaults to bands 1, 2, 3, 4, 5, and 7, which correspond to the blue, green, red, NIR, SWIR1, and SWIR2 bands.
-#'
-#' @returns A SpatRaster object (from the `terra` package) representing the masked Landsat image after clipping to the provided shapefile's boundary.
-#' @export
-#'
-#' @examples
-#' # Example usage:
-#' ProcessingLandsat2024(
-#'   landsat_dir = "E:/EAGLE/R_programming/LULC_LST/Data_2024/LC08_L2SP_169049_20240309_20240316_02_T1/",
-#'   shapefile_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/Greater_Asmara_Shapefile/Asmara.shp",
-#'   output_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_2024.tif",
-#'   bands = c(1, 2, 3, 4, 5, 7)
-#' )
 ProcessingLandsat2024 <- function(landsat_dir, shapefile_path, output_path, bands = c(1, 2, 3, 4, 5, 7)) {
 
   # Set the working directory
@@ -28,21 +6,37 @@ ProcessingLandsat2024 <- function(landsat_dir, shapefile_path, output_path, band
   # List the Landsat band files based on the provided bands
   band_files <- paste0("LC08_L2SP_169049_20240309_20240316_02_T1_SR_B", bands, ".TIF")
 
+  # Print the band files to check if the paths are correct
+  print("Band files to be loaded:")
+  print(band_files)
+
   # Check if the band files exist
-  if (any(!file.exists(band_files))) {
-    stop("One or more band files are missing. Please check the file paths.")
+  missing_files <- band_files[!file.exists(band_files)]
+  if (length(missing_files) > 0) {
+    stop("The following band files are missing: ", paste(missing_files, collapse = ", "))
   }
 
-  # Read the Landsat bands using terra::rast
-  landsat_bands <- lapply(band_files, function(x) terra::rast(x))
+  # Read the Landsat bands using terra::rast, with error handling
+  landsat_bands <- lapply(band_files, function(x) {
+    tryCatch({
+      terra::rast(x)
+    }, error = function(e) {
+      message(paste("Error reading band file:", x))
+      NULL  # Return NULL if there's an error reading the file
+    })
+  })
 
-  # Stack the Landsat bands using terra::rast (No need for terra::c())
-  Landsat_stack <- terra::rast(landsat_bands)  # Correct method to stack the rasters
+  # Remove any NULL values from the landsat_bands list (failed loads)
+  landsat_bands <- Filter(Negate(is.null), landsat_bands)
 
-  # Check for correct stacking
-  if (length(Landsat_stack) != length(bands)) {
-    stop("Mismatch between number of bands and the stacked raster layers.")
+  # Stack the Landsat bands
+  if (length(landsat_bands) != length(bands)) {
+    stop("Mismatch between number of successfully loaded bands and expected bands. Found ",
+         length(landsat_bands), " layers, but expected ", length(bands), " layers.")
   }
+
+  # Stack the rasters into a single object
+  Landsat_stack <- terra::rast(landsat_bands)  # Stack the rasters
 
   # Visualize the stacked bands (show the first 3 bands in RGB)
   terra::plot(Landsat_stack[[c(4, 3, 2)]], main = "True Color Composite (Bands 4, 3, 2)")
