@@ -21,7 +21,7 @@ ProcessingLandsat2024(
 \item{bands}{A numeric vector specifying the Landsat bands to be processed. Defaults to bands 1, 2, 3, 4, 5, and 7, which correspond to the blue, green, red, NIR, SWIR1, and SWIR2 bands.}
 }
 \value{
-A \code{SpatRaster} object (from the \code{terra} package) representing the masked Landsat image after clipping to the provided shapefile's boundary.
+A SpatRaster object (from the \code{terra} package) representing the masked Landsat image after clipping to the provided shapefile's boundary.
 }
 \description{
 Processing Landsat 8 with clipping and masking for 2024
