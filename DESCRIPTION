@@ -10,7 +10,6 @@ Description: This package is designed to classify land use and land cover (LULC)
              Normalized Difference Vegetation Index (NDVI) and LST for the selected years. 
              This will be accomplished by calculating the correlation and performing regression analysis to understand 
              how vegetation cover (as indicated by NDVI) is related to surface temperature variations across the two years. 
-              
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
