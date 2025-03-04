@@ -25,8 +25,8 @@ across the raster. The function then saves the classified raster and plots it.
 }
 \examples{
 classified_raster <- classify_land_use(
-  raster_path = "path/to/raster.tif",
-  shapefile_path = "path/to/training_data.shp",
-  output_raster_path = "path/to/output_classified_raster.tif"
+  raster_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_2024.tif",
+  shapefile_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/TrainingData_2025/Training_2024.shp",
+  output_raster_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_Classification_2024_discrete.tif"
 )
 }
