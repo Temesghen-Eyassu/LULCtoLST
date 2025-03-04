@@ -15,9 +15,9 @@
 #'
 #' @examples
 #' classified_raster <- classify_land_use(
-#'   raster_path = "path/to/raster.tif",
-#'   shapefile_path = "path/to/training_data.shp",
-#'   output_raster_path = "path/to/output_classified_raster.tif"
+#'   raster_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_2024.tif",
+#'   shapefile_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/TrainingData_2025/Training_2024.shp",
+#'   output_raster_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_Classification_2024_discrete.tif"
 #' )
 classify_land_use <- function(raster_path, shapefile_path, output_raster_path) {
 
@@ -47,7 +47,7 @@ classify_land_use <- function(raster_path, shapefile_path, output_raster_path) {
   training_data_combined <- cbind(raster_values, id = training_data$id)
 
   # Remove rows with NA values in raster values
-  training_data_combined <- na.omit(training_data_combined)
+  training_data_combined <- stats::na.omit(training_data_combined)
 
   # Train the Random Forest model
   rf_model <- randomForest::randomForest(id ~ ., data = training_data_combined, ntree = 100)
@@ -67,10 +67,3 @@ classify_land_use <- function(raster_path, shapefile_path, output_raster_path) {
   # Return the classified raster object
   return(predicted_raster_classified)
 }
-
-#' @examples
-#' classified_raster <- classify_land_use(
-#'   raster_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_2024.tif",
-#'   shapefile_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/TrainingData_2025/Training_2024.shp",
-#'   output_raster_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_Classification_2024_discrete.tif"
-#' )
