@@ -10,8 +10,10 @@
 #' @export
 #'
 #' @examples
-#' classified_raster_path <- "path_to_your_raster_file.tif"
+#' \dontrun{
+#' classified_raster_path <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_Classification_2024_discrete.tif"
 #' PlottingLULCfirst(classified_raster_path)
+#' }
 PlottingLULCfirst <- function(classified_raster_path, pixel_area_km2 = 0.0009) {
 
   # Step 1: Load the raster data
@@ -139,3 +141,7 @@ PlottingLULCfirst <- function(classified_raster_path, pixel_area_km2 = 0.0009) {
 # Replace "your_raster_file.tif" with the actual path to your raster data file
 classified_raster_path <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_Classification_2024_discrete.tif"  # Replace with your file path
 PlottingLULCfirst(classified_raster_path)
+
+
+
+file.exists("E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_Classification_2024_discrete.tif")

@@ -18,6 +18,8 @@ A data frame conatining the area and percenatge of each Land use/ Land cover cla
 Title
 }
 \examples{
-classified_raster_path <- "path_to_your_raster_file.tif"
+\dontrun{
+classified_raster_path <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_Classification_2024_discrete.tif"
 PlottingLULCfirst(classified_raster_path)
+}
 }
