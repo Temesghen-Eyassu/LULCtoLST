@@ -12,7 +12,7 @@ classify_land_use <- function() {
   training_data <- sf::st_read(shapefile_path)
 
   # Ensure both datasets are in the same CRS
-  training_data <- sf::st_transform(training_data, crs(masked_raster))
+  training_data <- sf::st_transform(training_data, terra::crs(masked_raster))
 
   # Check if the 'class_name' column exists and extract unique class labels
   if (!"class_name" %in% colnames(training_data)) {
