@@ -1,6 +1,17 @@
 
 
 # Function to create LULC plots
+#' Title
+#'
+#' @param classified_raster_path path to the classified raster data (e.g., a GeoTIFF file)
+#' @param pixel_area_km2 Area of a single pixel in square kilometers. Default is 0.0009km2
+#'
+#' @returns A data frame conatining the area and percenatge of each Land use/ Land cover class
+#' @export
+#'
+#' @examples
+#' classified_raster_path <- "path_to_your_raster_file.tif"
+#' PlottingLULCfirst(classified_raster_path)
 PlottingLULCfirst <- function(classified_raster_path, pixel_area_km2 = 0.0009) {
 
   # Step 1: Load the raster data
