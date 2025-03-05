@@ -32,8 +32,8 @@ data (validation shapefile) and calculates overall accuracy and Kappa coefficien
 }
 \examples{
 ConfusionMatrixfirst(
-  raster_path = "E:/path/to/masked_Asmara.tif",
-  validation_shapefile_path = "E:/path/to/Validation_2024.shp",
-  classified_raster_path = "E:/path/to/Masked_Asmara_Classification_2024_discrete.tif"
+  raster_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/masked_Asmara.tif",
+  validation_shapefile_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/Validation_Data2024/validation_2024/Validation_2024.shp",
+  classified_raster_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_Classification_2024_discrete.tif"
 )
 }
