@@ -1,3 +1,15 @@
+#' Process Landsat Data for 2024
+#'
+#' This function reads, processes, and crops Landsat 8 images based on the provided bands,
+#' and then masks the image with a given shapefile. It returns the processed raster image.
+#'
+#' @param landsat_dir The directory where the Landsat band files are stored.
+#' @param shapefile_path The path to the shapefile used for cropping the Landsat image.
+#' @param output_path The path where the masked raster image will be saved.
+#' @param bands A vector of band numbers to be used from the Landsat image. Default is c(1, 2, 3, 4, 5, 7).
+#'
+#' @return A masked raster image of the Landsat data.
+#' @export
 ProcessingLandsat2024 <- function(landsat_dir, shapefile_path, output_path, bands = c(1, 2, 3, 4, 5, 7)) {
 
   # Set the working directory
