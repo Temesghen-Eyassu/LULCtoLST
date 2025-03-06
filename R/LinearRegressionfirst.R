@@ -49,7 +49,7 @@ LinearRegressionfirst<- function(LST_path, NDVI_path, output_plot_path = NULL) {
 }
 
 # Example usage of the function
-result <- Linear_Regressionfirst(
+result <- LinearRegressionfirst(
   LST_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/LST_2024/LandSurfaceTemeprature_2024.tif",
   NDVI_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/LST_2024/NDVI_2024.tif",
   output_plot_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/LST_NDVI_regression_plot.png"
