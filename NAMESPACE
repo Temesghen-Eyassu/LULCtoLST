@@ -2,6 +2,9 @@
 
 export(ConfusionMatrixfirst)
 export(LSTfirst)
+export(LinearRegressionfirst)
 export(PlottingLULCfirst)
 export(ProcessingLandsat2024)
 export(classify_land_use)
+import(ggplot2)
+import(terra)
