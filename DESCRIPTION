@@ -1,5 +1,5 @@
 Package: LULCtoLST
-Title: LULC Classification, LST Calculation and NDVI-LST Relationship Analysis Using Landsat 8 Imagery
+Title: LULC Classification, LST Calculation, NDVI-LST and LULC-LST Relationships Analysis Using Landsat 8 Imagery
 Version: 0.0.0.9000
 Authors@R: 
     person("Temesghen", "Sereke", , "temesghensereke@gmail.com", role = c("aut", "cre"))
