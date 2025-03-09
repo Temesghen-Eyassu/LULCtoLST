@@ -30,7 +30,7 @@ ANOVA test for differences between classes, and fitting a linear regression mode
 It also creates a boxplot of LST by class.
 }
 \examples{
-LULCvsLSTfirst(LST_file = "path/to/LST.tif",
-               Classified_file = "path/to/Classified.tif",
-               output_dir = "path/to/output/dir")
+LULCvsLSTfirst(LST_file = "E:/EAGLE/R_programming/LULC_LST/Data_2024/LST_2024/LandSurfaceTemeprature_2024.tif",
+               Classified_file = "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_Classification_2024_discrete.tif",
+               output_dir = "E:/EAGLE/R_programming/LULC_LST/Data_2024")
 }

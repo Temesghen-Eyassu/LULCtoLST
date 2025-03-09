@@ -71,7 +71,7 @@ LULCvsLSTfirst <- function(LST_file, Classified_file, output_dir = NULL) {
 
   # Perform a one-way ANOVA to check for significant differences in LST across land cover classes
   # ANOVA tests whether the means of LST are significantly different between classes
-  anova_result <- aov(LST ~ factor(Class), data = valid_data)  # Perform ANOVA
+  anova_result <- stats::aov(LST ~ factor(Class), data = valid_data)  # Perform ANOVA
 
   # Print the summary of the ANOVA test results
   print("ANOVA Result:")  # Display the text "ANOVA Result:"
@@ -79,7 +79,7 @@ LULCvsLSTfirst <- function(LST_file, Classified_file, output_dir = NULL) {
 
   # Perform a linear regression to model LST as a function of land cover class
   # This checks if LST can be predicted by the land cover class variable
-  lm_model <- lm(LST ~ factor(Class), data = valid_data)  # Fit linear model
+  lm_model <- stats::lm(LST ~ factor(Class), data = valid_data)  # Fit linear model
 
   # Print the summary of the linear regression model
   print("Linear Regression Model:")  # Display the text "Linear Regression Model:"
