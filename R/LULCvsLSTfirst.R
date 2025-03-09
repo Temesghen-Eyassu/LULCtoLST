@@ -17,11 +17,11 @@
 #'   - `lm_summary`: Summary of the linear regression model.
 #'
 #' @export
-#'
-#' @examples
-#' LULCvsLSTfirst(LST_file = "path/to/LST.tif",
-#'                Classified_file = "path/to/Classified.tif",
-#'                output_dir = "path/to/output/dir")
+#'@examples
+#' LULCvsLSTfirst(LST_file = "E:/EAGLE/R_programming/LULC_LST/Data_2024/LST_2024/LandSurfaceTemeprature_2024.tif",
+#'                Classified_file = "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_Classification_2024_discrete.tif",
+#'                output_dir = "E:/EAGLE/R_programming/LULC_LST/Data_2024")
+
 
 LULCvsLSTfirst <- function(LST_file, Classified_file, output_dir = NULL) {
 
