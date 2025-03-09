@@ -2,6 +2,7 @@
 
 export(ConfusionMatrixfirst)
 export(LSTfirst)
+export(LULCvsLSTfirst)
 export(LinearRegressionfirst)
 export(PlottingLULCfirst)
 export(ProcessingLandsat2024)

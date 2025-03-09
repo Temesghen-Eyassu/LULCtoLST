@@ -20,7 +20,10 @@ Imports:
     randomForest, 
     dplyr,
     ggplot2, 
-    caret
+    caret, 
+    stats, 
+    aov,
+    lm
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
