@@ -10,6 +10,12 @@
 #'
 #' @return A masked raster image of the Landsat data.
 #' @export
+#'
+#' @examples
+#' landsat_dir <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/LC08_L2SP_169049_20240309_20240316_02_T1"
+#' shapefile_path <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/Greater_Asmara_Shapefile/Asmara.shp"
+#' output_path <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_2024.tif"
+#' masked_asmara_image <- ProcessingLandsat2024(landsat_dir, shapefile_path, output_path)
 ProcessingLandsat2024 <- function(landsat_dir, shapefile_path, output_path, bands = c(1, 2, 3, 4, 5, 7)) {
 
   # Set the working directory
@@ -80,3 +86,10 @@ ProcessingLandsat2024 <- function(landsat_dir, shapefile_path, output_path, band
   # Return the masked image object for further processing if needed
   return(masked_Asmara)
 }
+# Define file paths for the Landsat data and shapefile
+landsat_dir <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/LC08_L2SP_169049_20240309_20240316_02_T1"
+shapefile_path <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/Greater_Asmara_Shapefile/Asmara.shp"
+output_path <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_2024.tif"
+
+# Run the processing function
+masked_asmara_image <- ProcessingLandsat2024(landsat_dir, shapefile_path, output_path)
