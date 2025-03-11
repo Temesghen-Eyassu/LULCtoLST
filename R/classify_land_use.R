@@ -67,3 +67,14 @@ classify_land_use <- function(raster_path, shapefile_path, output_raster_path) {
   # Return the classified raster object
   return(predicted_raster_classified)
 }
+
+
+#Example usage with the path to your raster file:
+# Replace "your_raster_file.tif" with the actual path to your raster data file
+raster_path <-  "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_2024.tif"
+shapefile_path <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/TrainingData_2025/Training_2024.shp"
+output_raster_path <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_Classification_2024_discrete.tif"
+classify_2024<- classify_land_use(raster_path, shapefile_path, output_raster_path)
+
+
+
