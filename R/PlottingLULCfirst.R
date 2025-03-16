@@ -144,4 +144,4 @@ PlottingLULCfirst(classified_raster_path)
 
 
 
-file.exists("E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_Classification_2024_discrete.tif")
+
