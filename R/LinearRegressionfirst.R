@@ -74,3 +74,11 @@ LinearRegressionfirst <- function(LST_path, NDVI_path, output_plot_path = NULL) 
   # Return the plot and the regression model summary
   return(list(plot = plot, lm_model = lm_model))
 }
+# Example of calling the function
+LinearRegressionfirst(
+  LST_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/LST_2024/LandSurfaceTemperature_2024.tif",
+  NDVI_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/LST_2024/NDVI_2024.tif",
+  output_plot_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/LST_NDVI_regression_plot.png"
+)
+
+
