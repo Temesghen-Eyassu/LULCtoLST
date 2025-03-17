@@ -91,7 +91,7 @@ LULCvsLSTfirst <- function(LST_file, Classified_file, output_dir = NULL) {
 
 # Example usage:
 
-# Define the paths to your LST and Classified rasters
+# Define the paths to  LST and Classified rasters
 LST_file <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/LST_2024/LandSurfaceTemeprature_2024.tif"
 Classified_file <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_Classification_2024_discrete.tif"
 
