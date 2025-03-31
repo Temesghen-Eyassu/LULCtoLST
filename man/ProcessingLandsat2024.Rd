@@ -8,10 +8,7 @@ ProcessingLandsat2024(
   landsat_dir,
   shapefile_path,
   output_path,
-  bands = c(1, 2, 3, 4, 5, 7),
-  plot_processing = TRUE,
-  save_plot = FALSE,
-  plot_filename = "landsat_processing_plot.png"
+  bands = c(1, 2, 3, 4, 5, 7)
 )
 }
 \arguments{
@@ -22,12 +19,6 @@ ProcessingLandsat2024(
 \item{output_path}{The path where the masked raster image will be saved.}
 
 \item{bands}{A vector of band numbers to be used from the Landsat image. Default is c(1, 2, 3, 4, 5, 7).}
-
-\item{plot_processing}{A logical value indicating whether to plot the processed images. Default is TRUE.}
-
-\item{save_plot}{A logical value indicating whether to save the generated plot as a PNG file. Default is FALSE.}
-
-\item{plot_filename}{A string specifying the file name to save the plot, if save_plot is TRUE. Default is "landsat_processing_plot.png".}
 }
 \value{
 A masked raster image of the Landsat data.
