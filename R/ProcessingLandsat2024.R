@@ -7,6 +7,9 @@
 #' @param shapefile_path The path to the shapefile used for cropping the Landsat image.
 #' @param output_path The path where the masked raster image will be saved.
 #' @param bands A vector of band numbers to be used from the Landsat image. Default is c(1, 2, 3, 4, 5, 7).
+#' @param plot_processing A logical value indicating whether to plot the processed images. Default is TRUE.
+#' @param save_plot A logical value indicating whether to save the generated plot as a PNG file. Default is FALSE.
+#' @param plot_filename A string specifying the file name to save the plot, if save_plot is TRUE. Default is "landsat_processing_plot.png".
 #'
 #' @return A masked raster image of the Landsat data.
 #' @export
@@ -16,7 +19,8 @@
 #' shapefile_path <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/Greater_Asmara_Shapefile/Asmara.shp"
 #' output_path <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_2024.tif"
 #' masked_asmara_image <- ProcessingLandsat2024(landsat_dir, shapefile_path, output_path)
-ProcessingLandsat2024 <- function(landsat_dir, shapefile_path, output_path, bands = c(1, 2, 3, 4, 5, 7)) {
+
+ProcessingLandsat2024 <- function(landsat_dir, shapefile_path, output_path, bands = c(1, 2, 3, 4, 5, 7), plot_processing = TRUE, save_plot = FALSE, plot_filename = "landsat_processing_plot.png") {
 
   # Set the working directory
   setwd(landsat_dir)
@@ -56,11 +60,21 @@ ProcessingLandsat2024 <- function(landsat_dir, shapefile_path, output_path, band
   # Stack the rasters into a single object
   Landsat_stack <- terra::rast(landsat_bands)  # Stack the rasters
 
-  # Visualize the stacked bands (show the first 3 bands in RGB)
-  terra::plot(Landsat_stack[[c(4, 3, 2)]], main = "True Color Composite (Bands 4, 3, 2)")
+  # Optionally plot the stacked bands (show the first 3 bands in RGB)
+  if (plot_processing) {
+    terra::plot(Landsat_stack[[c(4, 3, 2)]], main = "True Color Composite (Bands 4, 3, 2)")
 
-  # Create a False Color Composite (Bands 5, 4, 3: NIR, Red, Green)
-  terra::plotRGB(Landsat_stack, r = 5, g = 4, b = 3, stretch = "lin", main = "False Color Composite (Bands 5, 4, 3)")
+    # Create a False Color Composite (Bands 5, 4, 3: NIR, Red, Green)
+    terra::plotRGB(Landsat_stack, r = 5, g = 4, b = 3, stretch = "lin", main = "False Color Composite (Bands 5, 4, 3)")
+
+    # Save the plot as a PNG file if required
+    if (save_plot) {
+      png(plot_filename, width = 800, height = 600)
+      terra::plot(Landsat_stack[[c(4, 3, 2)]], main = "True Color Composite (Bands 4, 3, 2)")
+      terra::plotRGB(Landsat_stack, r = 5, g = 4, b = 3, stretch = "lin", main = "False Color Composite (Bands 5, 4, 3)")
+      dev.off()
+    }
+  }
 
   # Read the shapefile for the boundary using sf::st_read
   Asmara_shape <- sf::st_read(shapefile_path)
@@ -74,11 +88,11 @@ ProcessingLandsat2024 <- function(landsat_dir, shapefile_path, output_path, band
 
   # Crop the Landsat stack using the Asmara boundary
   Cropped_Asmara <- terra::crop(Landsat_stack, Asmara_shape)
-  terra::plot(Cropped_Asmara, main = "Cropped Landsat Image")
+  terra::plot(Cropped_Asmara, main = "Cropped Landsat Image for 2024")
 
   # Mask the cropped Landsat image using the Asmara boundary
   masked_Asmara <- terra::mask(Cropped_Asmara, Asmara_shape)
-  terra::plot(masked_Asmara, main = "Masked Landsat Image")
+  terra::plot(masked_Asmara, main = "Masked Landsat Image for 2024")
 
   # Save the masked image to the specified output path
   terra::writeRaster(masked_Asmara, output_path, overwrite = TRUE)
@@ -86,10 +100,17 @@ ProcessingLandsat2024 <- function(landsat_dir, shapefile_path, output_path, band
   # Return the masked image object for further processing if needed
   return(masked_Asmara)
 }
-# Define file paths for the Landsat data and shapefile
+
+# Example usage of the function
 landsat_dir <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/LC08_L2SP_169049_20240309_20240316_02_T1"
 shapefile_path <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/Greater_Asmara_Shapefile/Asmara.shp"
 output_path <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_2024.tif"
 
-# Run the processing function
-masked_asmara_image <- ProcessingLandsat2024(landsat_dir, shapefile_path, output_path)
+masked_asmara_image <- ProcessingLandsat2024(
+  landsat_dir,
+  shapefile_path,
+  output_path,
+  plot_processing = TRUE,  # Set to TRUE to plot the processing steps
+  save_plot = TRUE,       # Set to TRUE to save the plot as a PNG file
+  plot_filename = "landsat_processing_plot.png"  # File name for saving the plot
+)
