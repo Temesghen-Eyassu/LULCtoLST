@@ -4,4 +4,7 @@
 .httr-oauth
 .DS_Store
 .quarto
+<<<<<<< HEAD
 Data/Landsat_8_for_2014.rar
+=======
+>>>>>>> 6de4c5f381f7dc810928b602e217870c94920a15
