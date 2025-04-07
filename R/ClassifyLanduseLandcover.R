@@ -62,7 +62,7 @@ ClassifyLanduseLandcover <- function(raster_path, shapefile_path, output_raster_
   terra::writeRaster(predicted_raster_classified, output_raster_path, overwrite = TRUE)
 
   # Plot the classified raster
-  terra::plot(predicted_raster_classified, main = "Classified Raster")
+  terra::plot(predicted_raster_classified, main = "Classified Raster for 2014")
 
   # Return the classified raster object
   return(predicted_raster_classified)

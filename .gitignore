@@ -5,3 +5,6 @@
 .DS_Store
 .quarto
 *.tar
+Rplots.pdf
+..Rcheck/
+tests/testthat-changeDetectionAnalysis.R

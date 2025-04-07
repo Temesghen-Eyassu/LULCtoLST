@@ -182,3 +182,5 @@ change_area_results <- ChangeDetectionAnalysis(
   plot_filename = "change_detection_map.png"  # The name of the file to save
 
 )
+
+use_test()
