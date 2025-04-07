@@ -108,7 +108,8 @@ ConfusionMatrixfirst <- function(raster_path, validation_shapefile_path, classif
 }
 
 # Test the function call with sample file paths
-ConfusionMatrix(
+ConfusionMatrixfirst(
+  raster_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/masked_Asmara.tif",
   validation_shapefile_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/Validation_Data2024/validation_2024/Validation_2024.shp",
   classified_raster_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_Classification_2024_discrete.tif"
 )
