@@ -1,55 +1,83 @@
----
-output: github_document
----
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-```
 
 # LULCtoLST
 
-<!-- badges: start -->
-<!-- badges: end -->
+This package is designed to show the relationship between the dynamics of Land Use and Land Cover (LULC) and their impact on Land Surface Temperature (LST) changes or differences.
 
-The goal of LULCtoLST is to ...
+## Description
+
+The package begins by classifying LULC types using Landsat 8 imagery from two selected years: 2014 and 2024, based on the Random Forest Algorithm. The classification categorizes the LULC into five distinct classes:
+- Built-Up Areas
+- Water Bodies
+- Agricultural Areas
+- Natural Vegetation
+- Open Areas
+
+The project then analyzes the changes in LULC over time between these two years. Additionally, the LST will be derived using Landsat 8’s thermal band (Band 10) for both 2014 and 2024. An analysis of the relationship between the Normalized Difference Vegetation Index (NDVI) and LST for these years will be performed. This will include calculating the correlation and conducting regression analysis to explore how vegetation cover (indicated by NDVI) relates to variations in LST. Furthermore, the project will examine the relationship between changes in LULC and differences in LST between the two years, providing insights into how land use and Land Use and Land Cover changes impact Land Surface Temperature trends.
 
 ## Installation
 
-You can install the development version of LULCtoLST from [GitHub](https://github.com/) with:
+To install the **LULCtoLST** package, use the following steps:
 
-``` r
-# install.packages("pak")
-pak::pak("Temesghen-Eyassu/LULCtoLST")
-```
+1. **Install the devtools package** (if not already installed):
 
-## Example
+    ```r
+    install.packages("devtools")
+    ```
 
-This is a basic example which shows you how to solve a common problem:
+2. **Install the LULCtoLST package from GitHub**:
 
-```{r example}
-library(LULCtoLST)
-## basic example code
-```
+    ```r
+    library(devtools)
+    install_github("Temesghen-Eyassu/LULCtoLST")
+    ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+3. **Load the package**:
 
-```{r cars}
-summary(cars)
-```
+    ```r
+    library(LULCtoLST)
+    ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
+---
 
-You can also embed plots, for example:
+### **LULC and LST Comparison for 2014 and 2024**
 
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
+#### Cropped Images
+- **2014:** 
+  ![Cropped_Image_for_2014](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2014/1_Cropped_2014.png)
+- **2024:** 
+  ![Cropped_Image_for_2024](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2024/1_Cropped_2024.png)
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+#### Masked Images
+- **2014:** 
+  ![Masked_Image_for_2014](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2014/1_Masked_2014.png)
+- **2024:** 
+  ![Masked_Image_for_2024](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2024/1_Masked_2024.png)
+
+#### Classified Images
+- **2014:** 
+  ![Classified_Image_for_2014](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2014/2_CLassified_2014.png)
+- **2024:** 
+  ![Classified_Image_for_2024](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2024/2_Classified_2024.png)
+
+#### LULC Classification with Classes
+- **2014:** 
+  ![LULC_Classification_with_Classes_2014](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2014/3_LULC_Classification_with_Classes_2014.png)
+- **2024:** 
+  ![LULC_Classification_with_Classes_2024](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2024/3_LULC_Classification_with_Classes_2024.png)
+
+#### NDVI Comparison
+- **2014:** 
+  ![NDVI_2014](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2014/NDVI_2014.png)
+- **2024:** 
+  ![NDVI_2024](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2024/NDVI_2024.png)
+
+#### LST Comparison
+- **2014:** 
+  ![LST_2014](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2014/LST_2014.png)
+- **2024:** 
+  ![LST_2024](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2024/LST_2024.png)
+
+---
+
+
+
