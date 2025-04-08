@@ -1,3 +1,6 @@
+---
+output: github_document
+---
 
 # LULCtoLST
 
@@ -43,41 +46,42 @@ To install the **LULCtoLST** package, use the following steps:
 
 #### Cropped Images
 - **2014:** 
-  ![Cropped_Image_for_2014](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2014/1_Cropped_2014.png)
+  ![Cropped_Image_for_2014](https://raw.githubusercontent.com/Temesghen-Eyassu/LULCtoLST/master/Images/Images_2014/1_Cropped_2014.png)
 - **2024:** 
-  ![Cropped_Image_for_2024](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2024/1_Cropped_2024.png)
+  ![Cropped_Image_for_2024](https://raw.githubusercontent.com/Temesghen-Eyassu/LULCtoLST/master/Images/Images_2024/1_Cropped_2024.png)
 
 #### Masked Images
 - **2014:** 
-  ![Masked_Image_for_2014](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2014/1_Masked_2014.png)
+  ![Masked_Image_for_2014](https://raw.githubusercontent.com/Temesghen-Eyassu/LULCtoLST/master/Images/Images_2014/1_Masked_2014.png)
 - **2024:** 
-  ![Masked_Image_for_2024](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2024/1_Masked_2024.png)
+  ![Masked_Image_for_2024](https://raw.githubusercontent.com/Temesghen-Eyassu/LULCtoLST/master/Images/Images_2024/1_Masked_2024.png)
 
 #### Classified Images
 - **2014:** 
-  ![Classified_Image_for_2014](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2014/2_CLassified_2014.png)
+  ![Classified_Image_for_2014](https://raw.githubusercontent.com/Temesghen-Eyassu/LULCtoLST/master/Images/Images_2014/2_CLassified_2014.png)
 - **2024:** 
-  ![Classified_Image_for_2024](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2024/2_Classified_2024.png)
+  ![Classified_Image_for_2024](https://raw.githubusercontent.com/Temesghen-Eyassu/LULCtoLST/master/Images/Images_2024/2_Classified_2024.png)
 
 #### LULC Classification with Classes
 - **2014:** 
-  ![LULC_Classification_with_Classes_2014](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2014/3_LULC_Classification_with_Classes_2014.png)
+  ![LULC_Classification_with_Classes_2014](https://raw.githubusercontent.com/Temesghen-Eyassu/LULCtoLST/master/Images/Images_2014/3_LULC_Classification_with_Classes_2014.png)
 - **2024:** 
-  ![LULC_Classification_with_Classes_2024](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2024/3_LULC_Classification_with_Classes_2024.png)
+  ![LULC_Classification_with_Classes_2024](https://raw.githubusercontent.com/Temesghen-Eyassu/LULCtoLST/master/Images/Images_2024/3_LULC_Classification_with_Classes_2024.png)
 
 #### NDVI Comparison
 - **2014:** 
-  ![NDVI_2014](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2014/NDVI_2014.png)
+  ![NDVI_2014](https://raw.githubusercontent.com/Temesghen-Eyassu/LULCtoLST/master/Images/Images_2014/NDVI_2014.png)
 - **2024:** 
-  ![NDVI_2024](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2024/NDVI_2024.png)
+  ![NDVI_2024](https://raw.githubusercontent.com/Temesghen-Eyassu/LULCtoLST/master/Images/Images_2024/NDVI_2024.png)
 
 #### LST Comparison
 - **2014:** 
-  ![LST_2014](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2014/LST_2014.png)
+  ![LST_2014](https://raw.githubusercontent.com/Temesghen-Eyassu/LULCtoLST/master/Images/Images_2014/LST_2014.png)
 - **2024:** 
-  ![LST_2024](https://github.com/Temesghen-Eyassu/LULCtoLST/raw/master/Images/Images_2024/LST_2024.png)
+  ![LST_2024](https://raw.githubusercontent.com/Temesghen-Eyassu/LULCtoLST/master/Images/Images_2024/LST_2024.png)
 
 ---
+
 
 
 
