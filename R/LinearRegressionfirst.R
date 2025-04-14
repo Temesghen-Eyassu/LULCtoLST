@@ -23,8 +23,9 @@
 #' summary(result$lm_model)
 #' print(result$plot)
 #'
-#' @import terra
-#' @import ggplot2
+#' @importFrom terra rast resample values
+#' @importFrom ggplot2 ggplot aes geom_point geom_smooth labs theme_minimal ggsave
+#' @importFrom stats lm
 #' @export
 LinearRegressionfirst <- function(LST_path, NDVI_path, output_plot_path = NULL) {
 

@@ -17,9 +17,9 @@
 #'
 #' @returns A list containing summary statistics for the LST difference, along with the data frames for the LST differences and significant differences.
 #'
-#' @import ggplot2
-#' @import terra
-#' @import sf
+#' @importFrom terra rast mask global
+#' @importFrom sf st_read
+#' @importFrom ggplot2 ggplot aes geom_tile scale_fill_gradientn coord_fixed labs theme_minimal theme ggsave
 #'
 #' @export
 #'

@@ -6,6 +6,13 @@
 #' @param pixel_area_km2 A numeric value representing the area of a single pixel in square kilometers. The default is 0.0009 km² (corresponding to a 30m x 30m pixel).
 #'
 #' @returns A data frame containing the area (in square kilometers) and percentage for each Land Use/Land Cover class.
+#'
+#' @importFrom terra rast
+#' @importFrom dplyr case_when
+#' @importFrom ggplot2 ggplot aes geom_raster scale_fill_manual coord_equal theme_minimal theme labs
+#' @importFrom ggplot2 geom_bar coord_polar geom_text position_stack element_blank element_text
+#'
+#'
 #' @export
 #'
 #' @examples

@@ -11,6 +11,10 @@
 #' @param output_raster_path A character string specifying the path to save the output classified raster.
 #'
 #' @returns A raster object containing the classified land use/land cover classes.
+#'
+#' @importFrom terra rast extract predict writeRaster as.factor plot
+#' @importFrom sf st_read st_transform st_centroid st_coordinates
+#' @importFrom randomForest randomForest
 #' @export
 #'
 #' @examples

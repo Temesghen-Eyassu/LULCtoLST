@@ -16,6 +16,9 @@
 #'   - `anova`: Summary of the ANOVA test results.
 #'   - `lm_summary`: Summary of the linear regression model.
 #'
+#'#' @importFrom terra rast resample values
+#' @importFrom ggplot2 ggplot aes geom_boxplot labs theme_minimal
+#' @importFrom stats aov lm
 #' @export
 #' @examples
 #' LULCvsLST(LST_file = "E:/EAGLE/R_programming/LULC_LST/Data_2014/LST_2014/LandSurfaceTemeprature_2014.tif",

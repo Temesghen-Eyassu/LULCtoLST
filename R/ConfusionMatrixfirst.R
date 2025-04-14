@@ -14,6 +14,10 @@
 #'
 #' @returns A confusion matrix, including overall accuracy and Kappa coefficient.
 #'   If the data is incompatible, an error message is printed.
+#'
+#' @import terra
+#' @import sf
+#' @import caret
 #' @export
 #'
 #' @examples
@@ -113,3 +117,4 @@ ConfusionMatrixfirst(
   validation_shapefile_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/Validation_Data2024/validation_2024/Validation_2024.shp",
   classified_raster_path = "E:/EAGLE/R_programming/LULC_LST/Data_2024/Masked_Asmara_Classification_2024_discrete.tif"
 )
+

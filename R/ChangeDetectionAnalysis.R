@@ -18,8 +18,8 @@
 #' @returns A data frame with the area (in square kilometers) for each change class
 #' detected in the analysis.
 #'
-#' @import ggplot2
-#' @import terra
+#' @importFrom terra rast res
+#' @importFrom ggplot2 ggplot aes geom_raster scale_fill_manual coord_equal theme_minimal theme labs ggsave
 #'
 #' @export
 #'

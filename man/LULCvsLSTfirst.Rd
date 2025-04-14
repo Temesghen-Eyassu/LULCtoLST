@@ -21,6 +21,8 @@ A list containing the following elements:
 \item \code{anova}: Summary of the ANOVA test results.
 \item \code{lm_summary}: Summary of the linear regression model.
 }
+
+#' @importFrom terra rast resample values
 }
 \description{
 This function performs a series of analyses comparing Land Surface Temperature (LST)

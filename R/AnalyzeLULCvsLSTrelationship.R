@@ -11,10 +11,9 @@
 #'
 #' @returns A list containing the correlation value, linear model summary, and the combined data.
 #'
-#' @import terra
-#' @import ggplot2
-#' @import dplyr
-#' @import stats
+#' @importFrom terra rast extract
+#' @importFrom ggplot2 ggplot aes geom_point labs theme_minimal theme element_text scale_color_manual
+#' @importFrom stats cor lm
 #'
 #' @export
 #'

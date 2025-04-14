@@ -7,6 +7,11 @@
 #' @param pixel_area_km2 Area of a single pixel in square kilometers. Default is 0.0009km2
 #'
 #' @returns A data frame conatining the area and percenatge of each Land use/ Land cover class
+#'
+#' @importFrom terra rast
+#' @importFrom dplyr case_when
+#' @importFrom ggplot2 ggplot aes geom_raster scale_fill_manual coord_equal theme_minimal theme labs
+#' @importFrom ggplot2 geom_bar coord_polar geom_text position_stack element_blank element_text
 #' @export
 #'
 #' @examples

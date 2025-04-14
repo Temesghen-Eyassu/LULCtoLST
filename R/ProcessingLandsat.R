@@ -9,6 +9,8 @@
 #' @param bands A vector of band numbers to be used from the Landsat image. Default is c(1, 2, 3, 4, 5, 7).
 #'
 #' @return A masked raster image of the Landsat data.
+#' @importFrom terra rast crop mask plot plotRGB crs writeRaster
+#' @importFrom sf st_read st_transform
 #' @export
 #'
 #' @examples

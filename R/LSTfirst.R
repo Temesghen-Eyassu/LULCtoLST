@@ -17,6 +17,8 @@
 #'
 #' @returns A series of raster layers (NDVI, Pveg, Emissivity, Brightness Temperature, and LST) that are saved as TIFF files in the output directory.
 #'
+#' @importFrom terra rast mask crop ext app writeRaster
+#' @importFrom sf st_read
 #' @export
 #'
 #' @examples

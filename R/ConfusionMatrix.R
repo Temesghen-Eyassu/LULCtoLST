@@ -16,6 +16,9 @@
 #' @returns A confusion matrix object with various metrics, including accuracy and Kappa.
 #' The confusion matrix is printed to the console, and accuracy and Kappa values are also displayed.
 #'
+#' @import terra
+#' @import sf
+#' @import caret
 #' @export
 #'
 #' @examples

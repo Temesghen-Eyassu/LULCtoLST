@@ -9,8 +9,10 @@
 #' @param bands A vector of band numbers to be used from the Landsat image. Default is c(1, 2, 3, 4, 5, 7).
 #'
 #' @return A masked raster image of the Landsat data.
-#' @export
 #'
+#' @importFrom terra rast crop mask plot plotRGB crs writeRaster
+#' @importFrom sf st_read st_transform
+#' @export
 #' @examples
 #' landsat_dir <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/LC08_L2SP_169049_20240309_20240316_02_T1"
 #' shapefile_path <- "E:/EAGLE/R_programming/LULC_LST/Data_2024/Greater_Asmara_Shapefile/Asmara.shp"
